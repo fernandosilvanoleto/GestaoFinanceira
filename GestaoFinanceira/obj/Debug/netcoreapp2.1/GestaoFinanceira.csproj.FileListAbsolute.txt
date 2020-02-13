@@ -30,3 +30,4 @@ C:\Users\fernando.sn\Documents\Visual Studio 2017\Projetos\GestaoFinanceira\Gest
 C:\Users\fernando.sn\Documents\Visual Studio 2017\Projetos\GestaoFinanceira\GestaoFinanceira\obj\Debug\netcoreapp2.1\GestaoFinanceira.dll
 C:\Users\fernando.sn\Documents\Visual Studio 2017\Projetos\GestaoFinanceira\GestaoFinanceira\obj\Debug\netcoreapp2.1\GestaoFinanceira.pdb
 C:\Users\fernando.sn\Documents\Visual Studio 2017\Projetos\GestaoFinanceira\GestaoFinanceira\obj\Debug\netcoreapp2.1\GestaoFinanceira.csproj.CopyComplete
+C:\Users\fernando.sn\Documents\Visual Studio 2017\Projetos\GestaoFinanceira\GestaoFinanceira\obj\Debug\netcoreapp2.1\Razor\Views\Usuario\Login.g.cshtml.cs
