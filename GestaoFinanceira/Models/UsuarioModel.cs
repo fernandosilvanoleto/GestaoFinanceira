@@ -27,6 +27,9 @@ namespace GestaoFinanceira.Models
             {
                 if (dt.Rows.Count == 1)
                 {
+                    Id = int.Parse(dt.Rows[0]["ID"].ToString());                    
+                    Nome = dt.Rows[0]["Nome"].ToString();
+                    DataNascimento = DateTime.Parse(dt.Rows[0]["DATA_NASCIMENTO"].ToString());
                     return true;
                 }
             }

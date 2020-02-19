@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using GestaoFinanceira.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GestaoFinanceira.Controllers
@@ -20,6 +21,8 @@ namespace GestaoFinanceira.Controllers
             bool login = usuario.ValidarLogin();
             if (login)
             {
+                HttpContext.Session.SetString("NomeUsuarioLogado", usuario.Nome);
+                HttpContext.Session.SetString("IdUsuarioLogado", usuario.Id.ToString());
                 return RedirectToAction("Index", "Home");
             }
             else
