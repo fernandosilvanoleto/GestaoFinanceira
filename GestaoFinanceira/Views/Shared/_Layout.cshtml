@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - GestaoFinanceira</title>
+    <title>@ViewData["Title"] GestaoFinanceira</title>
 
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
@@ -38,7 +38,7 @@
                 @using Microsoft.AspNetCore.Http;
                 @inject IHttpContextAccessor HttpContextAccessor
 
-                <div style="color:#ffffff;"><div id="NomeUsuarioLogado1"></div> </div>
+               <div id="NomeUsuarioLogadoView"></div>
             </div>
         </div>
     </nav>
@@ -78,8 +78,11 @@
 <script>
     function CarregarUsuarioLogado() {
         var nome = '@HttpContextAccessor.HttpContext.Session.GetString("NomeUsuarioLogado")'
-        var divNome = document.getElementById("NomeUsuarioLogado1");
-        divNome.innerHTML = "Olá, " + nome;
+        if (nome != "") {
+            var divNome = document.getElementById("NomeUsuarioLogadoView");
+            divNome.innerHTML = "Olá, " + nome + "<a href='Usuario/Login/0'>(Sair)</a>";
+            divNome.style = "color:#ffffff; text-align: right; heignt: 50 px; padding-top: 13px;"
+        }        
     }
 </script>
 </body>
