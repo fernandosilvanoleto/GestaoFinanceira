@@ -37,5 +37,11 @@ namespace GestaoFinanceira.Controllers
                 return RedirectToAction("Login");
             }
         }
+        [HttpPost]
+        [HttpGet]
+        public IActionResult Registrar(UsuarioModel usuario)
+        {
+            return View();
+        }
     }
 }
