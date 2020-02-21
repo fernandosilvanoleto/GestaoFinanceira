@@ -37,11 +37,21 @@ namespace GestaoFinanceira.Controllers
                 return RedirectToAction("Login");
             }
         }
-        [HttpPost]
-        [HttpGet]
+        [HttpPost]      
         public IActionResult Registrar(UsuarioModel usuario)
+        {
+            if (ModelState.IsValid)
+            {
+                //Registrar o usuário
+            }
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult Registrar()
         {
             return View();
         }
+
     }
 }
