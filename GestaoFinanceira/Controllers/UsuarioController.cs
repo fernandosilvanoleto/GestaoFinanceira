@@ -43,12 +43,19 @@ namespace GestaoFinanceira.Controllers
             if (ModelState.IsValid)
             {
                 //Registrar o usuário
+                usuario.RegistrarUsuarioModel();
+                return RedirectToAction("Sucesso");
             }
             return View();
         }
 
         [HttpGet]
         public IActionResult Registrar()
+        {
+            return View();
+        }
+        
+        public IActionResult Sucesso()
         {
             return View();
         }

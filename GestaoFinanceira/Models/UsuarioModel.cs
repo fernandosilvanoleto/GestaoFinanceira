@@ -22,7 +22,7 @@ namespace GestaoFinanceira.Models
         public string Senha { get; set; }
 
         [Required(ErrorMessage = "Preencha a Data de Nascimento!")]
-        public DateTime DataNascimento { get; set; }
+        public String DataNascimento { get; set; }
 
 
         public bool ValidarLogin()
@@ -37,14 +37,20 @@ namespace GestaoFinanceira.Models
                 {
                     Id = int.Parse(dt.Rows[0]["ID"].ToString());                    
                     Nome = dt.Rows[0]["Nome"].ToString();
-                    DataNascimento = DateTime.Parse(dt.Rows[0]["DATA_NASCIMENTO"].ToString());
+                    DataNascimento = dt.Rows[0]["DATA_NASCIMENTO"].ToString();
                     return true;
                 }
             }
             return false;
         }
 
-
+        public void RegistrarUsuarioModel()
+        {
+            string dataNascimento = DateTime.Parse(DataNascimento).ToString("yyyy/MM/dd");
+            string sql = $"INSERT INTO USUARIO (NOME, EMAIL, SENHA, DATA_NASCIMENTO) VALUES ('{Nome}', '{Email}', '{Senha}', '{dataNascimento}')";
+            DAL objDAL = new DAL();
+            objDAL.ExecutarComandoSQL(sql);
+        }
 
     }
 }
