@@ -29,7 +29,7 @@ namespace GestaoFinanceira.Controllers
             {
                 HttpContext.Session.SetString("NomeUsuarioLogado", usuario.Nome); //entrar na sessão de login
                 HttpContext.Session.SetString("IdUsuarioLogado", usuario.Id.ToString()); //entrar na sessão de login
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Menu", "Home");
             }
             else
             {
