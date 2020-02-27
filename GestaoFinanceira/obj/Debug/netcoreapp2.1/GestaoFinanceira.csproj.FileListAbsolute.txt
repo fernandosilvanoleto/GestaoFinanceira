@@ -38,3 +38,5 @@ C:\Users\fernando.sn\Documents\Visual Studio 2017\Projetos\GestaoFinanceira\Gest
 C:\Users\fernando.sn\Documents\Visual Studio 2017\Projetos\GestaoFinanceira\GestaoFinanceira\obj\Debug\netcoreapp2.1\Razor\Views\PlanoConta\Index.g.cshtml.cs
 C:\Users\fernando.sn\Documents\Visual Studio 2017\Projetos\GestaoFinanceira\GestaoFinanceira\obj\Debug\netcoreapp2.1\Razor\Views\Transacao\Index.g.cshtml.cs
 C:\Users\fernando.sn\Documents\Visual Studio 2017\Projetos\GestaoFinanceira\GestaoFinanceira\obj\Debug\netcoreapp2.1\Razor\Views\Transacao\Extrato.g.cshtml.cs
+C:\Users\fernando.sn\Documents\Visual Studio 2017\Projetos\GestaoFinanceira\GestaoFinanceira\obj\Debug\netcoreapp2.1\Razor\Views\Transacao\Dashboard.g.cshtml.cs
+C:\Users\fernando.sn\Documents\Visual Studio 2017\Projetos\GestaoFinanceira\GestaoFinanceira\obj\Debug\netcoreapp2.1\Razor\Views\Home\Ajuda.g.cshtml.cs

@@ -47,5 +47,11 @@ namespace GestaoFinanceira.Controllers
         {
             return View();
         }
+
+        // ao se criar uma view, vc precisa referenciar no controller. Se não, não funciona a parada...
+        public IActionResult Ajuda()
+        {
+            return View();
+        }
     }
 }
