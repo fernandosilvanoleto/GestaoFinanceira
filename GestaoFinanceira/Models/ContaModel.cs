@@ -1,4 +1,5 @@
 ﻿using GestaoFinanceira.Util;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -13,13 +14,25 @@ namespace GestaoFinanceira.Models
         public string Nome { get; set; }
         public double Saldo { get; set; }
         public int IdUsuario { get; set; }
+        IHttpContextAccessor httpContextAccessorModel;
+
+        public ContaModel()
+        {
+
+        }
+
+        //Recebe o contexto para acesso às variáveis de sessão
+        public ContaModel(IHttpContextAccessor httpContextAccessor)
+        {
+            httpContextAccessorModel = httpContextAccessor;
+        }
 
         public List<ContaModel> ListaContaModel()
         {
             List<ContaModel> lista = new List<ContaModel>();
             ContaModel item;
 
-            string id_usuario_logado = "1";
+            string id_usuario_logado = httpContextAccessorModel.HttpContext.Session.GetString("IdUsuarioLogado");
             string sql = $"SELECT ID, NOME, SALDO, USUARIO_ID FROM CONTA WHERE USUARIO_ID = {id_usuario_logado}";
             DAL objDAL = new DAL();
             DataTable dt = objDAL.RetDataTable(sql);

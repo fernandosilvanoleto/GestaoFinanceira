@@ -37,6 +37,7 @@ namespace GestaoFinanceira
             services.AddMvc();
             services.AddSession();
             services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>(); //tenho que fazer isso depois do .NET Core 2.1
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>(); // ler a variável de sessão de usuário logado do controller no model
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
