@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
@@ -11,7 +12,9 @@ namespace GestaoFinanceira.Models
     public class ContaModel
     {
         public int Id { get; set; }
+        [Required(ErrorMessage = "Informe o Nome da Conta")]
         public string Nome { get; set; }
+        [Required (ErrorMessage = "Informe o Saldo da Conta")]
         public double Saldo { get; set; }
         public int IdUsuario { get; set; }
         IHttpContextAccessor httpContextAccessorModel;

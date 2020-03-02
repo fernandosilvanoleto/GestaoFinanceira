@@ -23,5 +23,17 @@ namespace GestaoFinanceira.Controllers
             ViewBag.ListaContaController = contaController.ListaContaModel();
             return View();
         }
+
+        [HttpPost]
+        public IActionResult CriarConta(ContaModel formulario)
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult CriarConta()
+        {
+            return View();
+        }
     }
 }
