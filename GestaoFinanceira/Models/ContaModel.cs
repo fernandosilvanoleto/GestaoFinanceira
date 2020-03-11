@@ -17,7 +17,7 @@ namespace GestaoFinanceira.Models
         [Required (ErrorMessage = "Informe o Saldo da Conta")]
         public double Saldo { get; set; }
         public int IdUsuario { get; set; }
-        IHttpContextAccessor httpContextAccessorModel;
+        public IHttpContextAccessor httpContextAccessorModel { get; set; }
 
         public ContaModel()
         {
@@ -51,5 +51,14 @@ namespace GestaoFinanceira.Models
             }
             return lista;
         }
+
+        public void Insert()
+        {
+            string id_usuario_logado = httpContextAccessorModel.HttpContext.Session.GetString("IdUsuarioLogado");
+            string sql = $"INSERT INTO CONTA(NOME, SALDO, USUARIO_ID) VALUES ('{Nome}', '{Saldo}', '{id_usuario_logado}')";
+            DAL objDAL = new DAL();
+            objDAL.ExecutarComandoSQL(sql);
+        }
+
     }
 }

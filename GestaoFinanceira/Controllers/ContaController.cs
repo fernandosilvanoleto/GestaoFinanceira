@@ -27,6 +27,12 @@ namespace GestaoFinanceira.Controllers
         [HttpPost]
         public IActionResult CriarConta(ContaModel formulario)
         {
+            if (ModelState.IsValid)
+            {
+                formulario.httpContextAccessorModel = httpContextAccessorController;
+                formulario.Insert();
+                return RedirectToAction("Index");
+            }
             return View();
         }
 
