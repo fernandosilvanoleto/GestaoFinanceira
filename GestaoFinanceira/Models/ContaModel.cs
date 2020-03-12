@@ -52,7 +52,25 @@ namespace GestaoFinanceira.Models
             return lista;
         }
 
-        public void Insert()
+        public ContaModel ListaContaEspecifica(int? idConta)
+        {
+            ContaModel lista = new ContaModel();
+
+            string id_usuario_logado = httpContextAccessorModel.HttpContext.Session.GetString("IdUsuarioLogado");
+            string sql = $"SELECT ID, NOME, SALDO, USUARIO_ID FROM CONTA WHERE USUARIO_ID = {id_usuario_logado} AND ID = {idConta}";
+            DAL objDAL = new DAL();
+            DataTable dt = objDAL.RetDataTable(sql);
+
+            lista.Id = int.Parse(dt.Rows[0]["ID"].ToString());
+            lista.Nome = dt.Rows[0]["NOME"].ToString();
+            lista.Saldo = double.Parse(dt.Rows[0]["SALDO"].ToString());
+            lista.IdUsuario = int.Parse(dt.Rows[0]["USUARIO_ID"].ToString());
+
+            return lista;
+        }
+       
+
+            public void Insert()
         {
             string id_usuario_logado = httpContextAccessorModel.HttpContext.Session.GetString("IdUsuarioLogado");
             string sql = $"INSERT INTO CONTA(NOME, SALDO, USUARIO_ID) VALUES ('{Nome}', '{Saldo}', '{id_usuario_logado}')";
@@ -63,6 +81,11 @@ namespace GestaoFinanceira.Models
         public void ExcluirContaModel(int idConta)
         {
             new DAL().ExecutarComandoSQL("DELETE FROM CONTA WHERE ID = " + idConta);
+        }
+
+        public void Update()
+        {
+            
         }
 
     }

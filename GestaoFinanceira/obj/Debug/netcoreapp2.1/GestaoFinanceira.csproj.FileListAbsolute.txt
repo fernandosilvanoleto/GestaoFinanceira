@@ -41,3 +41,4 @@ C:\Users\fernando.sn\Documents\Visual Studio 2017\Projetos\GestaoFinanceira\Gest
 C:\Users\fernando.sn\Documents\Visual Studio 2017\Projetos\GestaoFinanceira\GestaoFinanceira\obj\Debug\netcoreapp2.1\Razor\Views\Transacao\Dashboard.g.cshtml.cs
 C:\Users\fernando.sn\Documents\Visual Studio 2017\Projetos\GestaoFinanceira\GestaoFinanceira\obj\Debug\netcoreapp2.1\Razor\Views\Home\Ajuda.g.cshtml.cs
 C:\Users\fernando.sn\Documents\Visual Studio 2017\Projetos\GestaoFinanceira\GestaoFinanceira\obj\Debug\netcoreapp2.1\Razor\Views\Conta\CriarConta.g.cshtml.cs
+C:\Users\fernando.sn\Documents\Visual Studio 2017\Projetos\GestaoFinanceira\GestaoFinanceira\obj\Debug\netcoreapp2.1\Razor\Views\Conta\Editar.g.cshtml.cs

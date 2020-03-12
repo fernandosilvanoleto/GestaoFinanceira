@@ -31,7 +31,7 @@ namespace GestaoFinanceira.Controllers
             {
                 formulario.httpContextAccessorModel = httpContextAccessorController;
                 formulario.Insert();
-                return RedirectToAction("Index");
+                return RedirectToAction(nameof(Index));
             }
             return View();
         }
@@ -46,7 +46,19 @@ namespace GestaoFinanceira.Controllers
         {
             ContaModel contaController = new ContaModel(httpContextAccessorController);
             contaController.ExcluirContaModel(id);
-            return RedirectToAction("Index");
+            return RedirectToAction(nameof(Index));
+        }
+
+        [HttpGet]
+        public IActionResult Editar(int? idConta)
+        {
+            if (idConta != 0)
+            {
+                ContaModel contaController = new ContaModel(httpContextAccessorController);
+                ViewBag.ContaEspecifica = contaController.ListaContaEspecifica(idConta);
+
+            }
+            return View();         
         }
     }
 }
