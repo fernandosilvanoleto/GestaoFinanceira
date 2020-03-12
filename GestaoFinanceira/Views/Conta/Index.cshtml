@@ -19,10 +19,10 @@
         {
             <tbody>
                 <tr>
-                    <td><button type="button" class="btn btn-danger">Excluir</button></td>
+                    <td><button type="button" class="btn btn-danger" onclick="Excluir(@item.Id.ToString())">Excluir</button></td>
                     <td>@item.Id.ToString()</td>
                     <td>@item.Nome.ToString()</td>
-                    <td>@item.Saldo.ToString()</td>
+                    <td>R$ @item.Saldo.ToString()</td>
                 </tr>
             </tbody>
         }
@@ -32,9 +32,11 @@
 <button type="button" class="btn btn-block btn-primary" onclick="CriarConta()">Criar Conta</button>
 
 <script>
-    function CriarConta()
-    {
+    function CriarConta() {
         window.location.href = "../Conta/CriarConta";
+    }
+    function Excluir(idConta) {
+        window.location.href = "../Conta/ExcluirConta/" + idConta;
     }
 </script>
 

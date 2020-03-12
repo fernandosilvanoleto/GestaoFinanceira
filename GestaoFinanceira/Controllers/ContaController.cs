@@ -41,5 +41,12 @@ namespace GestaoFinanceira.Controllers
         {
             return View();
         }
+
+       public IActionResult ExcluirConta(int id)
+        {
+            ContaModel contaController = new ContaModel(httpContextAccessorController);
+            contaController.ExcluirContaModel(id);
+            return RedirectToAction("Index");
+        }
     }
 }

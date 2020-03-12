@@ -60,5 +60,10 @@ namespace GestaoFinanceira.Models
             objDAL.ExecutarComandoSQL(sql);
         }
 
+        public void ExcluirContaModel(int idConta)
+        {
+            new DAL().ExecutarComandoSQL("DELETE FROM CONTA WHERE ID = " + idConta);
+        }
+
     }
 }
