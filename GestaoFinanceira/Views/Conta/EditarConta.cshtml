@@ -7,21 +7,27 @@
 
 
 
-<form asp-controller="Conta" asp-action="Editar">
+<form asp-controller="Conta" asp-action="EditarConta">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
     <div class="form-group">
         <label asp-for="Nome" class="control-label">Nome:</label>
-        <input type="text" class="form-control" asp-for="Nome" value="@ViewBag.ContaEspecifica.Nome.ToString()"/>
+        <input type="text" class="form-control" asp-for="Nome" value="@ViewBag.ContaEspecifica.Nome.ToString()" />
         <span asp-validation-for="Nome" class="text-danger"></span>
     </div>
 
     <div class="form-group">
         <label>Saldo:</label>
-        <input type="text" class="form-control" asp-for="Saldo" value="@ViewBag.ContaEspecifica.Saldo.ToString()"/>
+        <input type="text" class="form-control" asp-for="Saldo" value="@ViewBag.ContaEspecifica.Saldo.ToString()" />
         <span asp-validation-for="Saldo" class="text-danger"></span>
     </div>
 
-    <button type="submit" class="btn btn-block btn-success">Registrar</button>
+    <div class="form-group">
+        <label>Identificação do Cliente:</label>
+        <input type="text" class="form-control" asp-for="IdUsuario" value="@ViewBag.ContaEspecifica.IdUsuario.ToString()" />
+        <span asp-validation-for="IdUsuario" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-block btn-success">Atualizar Dados</button>
 
 </form>
 

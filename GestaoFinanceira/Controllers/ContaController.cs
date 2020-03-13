@@ -63,5 +63,17 @@ namespace GestaoFinanceira.Controllers
                 return RedirectToAction(nameof(Index));
             }                  
         }
+
+        [HttpPost]
+        public IActionResult EditarConta(ContaModel formulario)
+        {
+            if (ModelState.IsValid)
+            {
+                formulario.httpContextAccessorModel = httpContextAccessorController;
+                formulario.Update(formulario);
+            }
+            return RedirectToAction(nameof(Index));
+        }
+
     }
 }

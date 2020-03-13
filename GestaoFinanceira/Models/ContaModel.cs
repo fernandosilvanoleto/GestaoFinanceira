@@ -78,15 +78,18 @@ namespace GestaoFinanceira.Models
             objDAL.ExecutarComandoSQL(sql);
         }
 
+        public void Update(ContaModel formulario)
+        {
+            string id_usuario_logado = httpContextAccessorModel.HttpContext.Session.GetString("IdUsuarioLogado");
+            string sql = $"UPDATE CONTA SET NOME = '{formulario.Nome}', SALDO = '{formulario.Saldo}' WHERE ID = '{formulario.Id}' AND USUARIO_ID = '{IdUsuario}'";
+            DAL objDAL = new DAL();
+            objDAL.ExecutarComandoSQL(sql);
+        }
+
         public void ExcluirContaModel(int idConta)
         {
             new DAL().ExecutarComandoSQL("DELETE FROM CONTA WHERE ID = " + idConta);
-        }
-
-        public void Update()
-        {
-            
-        }
+        }        
 
     }
 }
