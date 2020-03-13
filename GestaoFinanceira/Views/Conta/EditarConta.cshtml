@@ -17,7 +17,7 @@
 
     <div class="form-group">
         <label>Saldo:</label>
-        <input type="text" class="form-control" asp-for="Saldo" />
+        <input type="text" class="form-control" asp-for="Saldo" value="@ViewBag.ContaEspecifica.Saldo.ToString()"/>
         <span asp-validation-for="Saldo" class="text-danger"></span>
     </div>
 

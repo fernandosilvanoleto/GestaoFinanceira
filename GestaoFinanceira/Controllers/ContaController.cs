@@ -50,15 +50,18 @@ namespace GestaoFinanceira.Controllers
         }
 
         [HttpGet]
-        public IActionResult Editar(int? idConta)
+        public IActionResult EditarConta(int id)
         {
-            if (idConta != 0)
-            {
+            if (id != 0)
+            {               
                 ContaModel contaController = new ContaModel(httpContextAccessorController);
-                ViewBag.ContaEspecifica = contaController.ListaContaEspecifica(idConta);
-
+                ViewBag.ContaEspecifica = contaController.ListaContaEspecifica(id);
+                return View();
             }
-            return View();         
+            else
+            {
+                return RedirectToAction(nameof(Index));
+            }                  
         }
     }
 }
