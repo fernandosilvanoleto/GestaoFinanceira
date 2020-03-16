@@ -55,5 +55,18 @@ namespace GestaoFinanceira.Models
             return lista;
         }
 
+        public void Insert()
+        {
+            string id_usuario_logado = httpContextAccessorModel.HttpContext.Session.GetString("IdUsuarioLogado");
+            string sql = $"INSERT INTO PLANO_CONTAS (DESCRICAO, TIPO, USUARIO_ID) VALUES ('{Descricao}', '{Tipo}', '{id_usuario_logado}')";
+            DAL objDAL = new DAL();
+            objDAL.ExecutarComandoSQL(sql);
+        }        
+
+        public void ExcluirPlanoContaModel(int idConta)
+        {
+            new DAL().ExecutarComandoSQL("DELETE FROM PLANO_CONTAS WHERE ID = " + idConta);
+        }
+
     }
 }
