@@ -12738,23 +12738,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\fernando.sn\\.nuget\\packages\\": {},
+    "C:\\Users\\Fernando\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\fernando.sn\\Documents\\Visual Studio 2017\\Projetos\\GestaoFinanceira\\GestaoFinanceira\\GestaoFinanceira.csproj",
+      "projectUniqueName": "G:\\Programação_Udemy\\C#\\GestaoFinanceira\\GestaoFinanceira\\GestaoFinanceira.csproj",
       "projectName": "GestaoFinanceira",
-      "projectPath": "C:\\Users\\fernando.sn\\Documents\\Visual Studio 2017\\Projetos\\GestaoFinanceira\\GestaoFinanceira\\GestaoFinanceira.csproj",
-      "packagesPath": "C:\\Users\\fernando.sn\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\fernando.sn\\Documents\\Visual Studio 2017\\Projetos\\GestaoFinanceira\\GestaoFinanceira\\obj\\",
+      "projectPath": "G:\\Programação_Udemy\\C#\\GestaoFinanceira\\GestaoFinanceira\\GestaoFinanceira.csproj",
+      "packagesPath": "C:\\Users\\Fernando\\.nuget\\packages\\",
+      "outputPath": "G:\\Programação_Udemy\\C#\\GestaoFinanceira\\GestaoFinanceira\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\fernando.sn\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Fernando\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

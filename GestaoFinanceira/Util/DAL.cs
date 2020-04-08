@@ -12,7 +12,7 @@ namespace GestaoFinanceira.Util
         private static string server = "localhost";
         private static string database = "financeiro";
         private static string user = "root";
-        private static string password = "";
+        private static string password = "12345678";
         private string connectionString = $"Server={server};Database={database};Uid={user};Pwd={password}";
         private MySqlConnection connection;
 
