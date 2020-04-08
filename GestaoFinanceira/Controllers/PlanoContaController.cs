@@ -42,20 +42,21 @@ namespace GestaoFinanceira.Controllers
             return View();
         }
 
-        public IActionResult ExcluirConta(int id)
+        [HttpGet]
+        public IActionResult ExcluirPlanoConta(int? id)
         {
-            PlanoContaModel contaController = new PlanoContaModel(httpContextAccessorController);
-            contaController.ExcluirPlanoContaModel(id);
+            PlanoContaModel planoContaController = new PlanoContaModel(httpContextAccessorController);
+            planoContaController.ExcluirPlanoContaModel(id);
             return RedirectToAction(nameof(Index));
         }
 
         [HttpGet]
-        public IActionResult EditarConta(int id)
+        public IActionResult EditarPlanoConta(int? id)
         {
-            if (id != 0)
+            if (id != null)
             {
-                ContaModel contaController = new ContaModel(httpContextAccessorController);
-                ViewBag.ContaEspecifica = contaController.ListaContaEspecifica(id);
+                PlanoContaModel planocontaController = new PlanoContaModel(httpContextAccessorController);
+                ViewBag.ContaEspecifica = planocontaController.ListaPlanoContaEspecifica(id);
                 return View();
             }
             else
@@ -65,7 +66,7 @@ namespace GestaoFinanceira.Controllers
         }
 
         [HttpPost]
-        public IActionResult EditarConta(ContaModel formulario)
+        public IActionResult EditarPlanoConta(PlanoContaModel formulario)
         {
             if (ModelState.IsValid)
             {

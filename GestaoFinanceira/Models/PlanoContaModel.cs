@@ -13,7 +13,7 @@ namespace GestaoFinanceira.Models
     {
         public int Id { get; set; }
 
-        [Required(ErrorMessage ="Informe a Descrição!")]
+        [Required(ErrorMessage = "Informe a Descrição!")]
         public string Descricao { get; set; }
         
         public string Tipo { get; set; }
@@ -63,9 +63,34 @@ namespace GestaoFinanceira.Models
             objDAL.ExecutarComandoSQL(sql);
         }        
 
-        public void ExcluirPlanoContaModel(int idConta)
+        public void ExcluirPlanoContaModel(int? id)
         {
-            new DAL().ExecutarComandoSQL("DELETE FROM PLANO_CONTAS WHERE ID = " + idConta);
+            new DAL().ExecutarComandoSQL("DELETE FROM PLANO_CONTAS WHERE ID = " + id);
+        }
+
+        public PlanoContaModel ListaPlanoContaEspecifica(int? id)
+        {
+            PlanoContaModel item = new PlanoContaModel();
+
+            string id_usuario_logado = httpContextAccessorModel.HttpContext.Session.GetString("IdUsuarioLogado");
+            string sql = $"SELECT ID, DESCRICAO, TIPO, USUARIO_ID FROM PLANO_CONTAS WHERE USUARIO_ID = {id_usuario_logado} AND Id = {id}";
+            DAL objDAL = new DAL();
+            DataTable dt = objDAL.RetDataTable(sql);
+
+            item.Id = int.Parse(dt.Rows[0]["ID"].ToString());
+            item.Descricao = dt.Rows[0]["DESCRICAO"].ToString();
+            item.Tipo = dt.Rows[0]["TIPO"].ToString();
+            item.Usuario_Id = int.Parse(dt.Rows[0]["USUARIO_ID"].ToString());
+
+            return item;
+        }
+
+        public void Update(PlanoContaModel formulario)
+        {
+            string id_usuario_logado = httpContextAccessorModel.HttpContext.Session.GetString("IdUsuarioLogado");
+            string sql = $"UPDATE PLANO_CONTAS SET DESCRICAO = '{formulario.Descricao}', TIPO = '{formulario.Tipo}' WHERE ID = '{formulario.Id}' AND USUARIO_ID = '{id_usuario_logado}'";
+            DAL objDAL = new DAL();
+            objDAL.ExecutarComandoSQL(sql);
         }
 
     }
