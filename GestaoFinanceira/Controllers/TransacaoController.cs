@@ -23,6 +23,27 @@ namespace GestaoFinanceira.Controllers
             ViewBag.ListaTransacaoController = objTransacao.ListaTransacaoModel();
             return View();
         }
+
+        public IActionResult CriarTransacao()
+        {
+            ViewBag.ListaContas = new ContaModel(httpContextAccessorController).ListaContaModel();
+            ViewBag.ListaPlanoContas = new PlanoContaModel(httpContextAccessorController).ListaPlanoContaModel();
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult CriarTransacao(TransacaoModel formulario)
+        {
+            if (ModelState.IsValid)
+            {
+                formulario.httpContextAccessorModel = httpContextAccessorController;
+                //formulario.Inserir();
+                return RedirectToAction(nameof(Index));
+            }
+            return View();
+        }
+
         public IActionResult Extrato()
         {
             return View();
