@@ -55,7 +55,7 @@ namespace GestaoFinanceira.Models
                             " inner join conta as c on t.CONTA_ID = c.id" +
                             " inner join plano_contas as plano on t.PLANO_CONTAS_ID = plano.Id" +
                             " inner join usuario as usuario on t.USUARIO_ID = usuario.Id" +
-                            $" WHERE t.USUARIO_ID = { id_usuario_logado };";
+                            $" WHERE t.USUARIO_ID = { id_usuario_logado }  ORDER BY t.DATA;";
             DAL objDAL = new DAL();
             DataTable dt = objDAL.RetDataTable(sql);
 
@@ -77,6 +77,36 @@ namespace GestaoFinanceira.Models
                 lista.Add(item);
             }
             return lista;
+        }
+
+        public TransacaoModel ListaTransacaoEspecificaModel(int? id)
+        {
+            TransacaoModel transacao = new TransacaoModel();
+
+            string id_usuario_logado = httpContextAccessorModel.HttpContext.Session.GetString("IdUsuarioLogado");
+            string sql = "SELECT t.ID, t.DATA, t.TIPO, t.VALOR, t.DESCRICAO AS Historico, t.CONTA_ID, c.Nome, " +
+                            " t.PLANO_CONTAS_ID, plano.Descricao AS PlanoConta, t.USUARIO_ID, usuario.Nome as NomeUsuario" +
+                            " FROM TRANSACAO as t" +
+                            " inner join conta as c on t.CONTA_ID = c.id" +
+                            " inner join plano_contas as plano on t.PLANO_CONTAS_ID = plano.Id" +
+                            " inner join usuario as usuario on t.USUARIO_ID = usuario.Id" +
+                            $" WHERE t.USUARIO_ID = { id_usuario_logado } AND t.ID = {id};";
+            DAL objDAL = new DAL();
+            DataTable dt = objDAL.RetDataTable(sql);
+
+            transacao.Id = int.Parse(dt.Rows[0]["ID"].ToString());
+            transacao.Data = DateTime.Parse(dt.Rows[0]["DATA"].ToString()).ToString("dd/MM/yyyy");
+            transacao.Tipo = dt.Rows[0]["TIPO"].ToString();
+            transacao.Valor = double.Parse(dt.Rows[0]["VALOR"].ToString());
+            transacao.Descricao = dt.Rows[0]["Historico"].ToString();
+            transacao.Conta_Id = int.Parse(dt.Rows[0]["CONTA_ID"].ToString());
+            transacao.NomeConta = dt.Rows[0]["Nome"].ToString();
+            transacao.PlanoConta_Id = int.Parse(dt.Rows[0]["PLANO_CONTAS_ID"].ToString());
+            transacao.PlanoConta = dt.Rows[0]["PlanoConta"].ToString();
+            transacao.Usuario_Id = int.Parse(dt.Rows[0]["USUARIO_ID"].ToString());
+            transacao.NomeUsuario = dt.Rows[0]["NomeUsuario"].ToString();
+
+            return transacao;
         }
 
         public void Inserir()

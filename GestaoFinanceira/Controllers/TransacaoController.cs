@@ -44,6 +44,20 @@ namespace GestaoFinanceira.Controllers
             return View();
         }
 
+        [HttpGet]
+        public IActionResult EditarTransacao(int? id)
+        {
+            if (id != null)
+            {
+                TransacaoModel transacao = new TransacaoModel(httpContextAccessorController);
+                ViewBag.TransacaoEspecifica = transacao.ListaTransacaoEspecificaModel(id);
+                ViewBag.ListaContas = new ContaModel(httpContextAccessorController).ListaContaModel();
+                ViewBag.ListaPlanoContas = new PlanoContaModel(httpContextAccessorController).ListaPlanoContaModel();
+                return View();
+            }
+            return View(nameof(Index));
+        }
+
         public IActionResult Extrato()
         {
             return View();

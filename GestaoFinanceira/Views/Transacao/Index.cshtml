@@ -10,7 +10,6 @@
         <tr>
             <th>#</th>
             <th>#</th>
-            <th>Id</th>
             <th>Data</th>
             <th>Tipo</th>
             <th>Valor</th>
@@ -27,7 +26,6 @@
                     <tr>
                         <td><button type="button" class="btn btn-danger" onclick="Excluir(@item.Id.ToString())">Excluir</button></td>
                         <td><button type="button" class="btn btn-primary" onclick="Editar(@item.Id.ToString())">Editar</button></td>
-                        <td>@item.Id.ToString()</td>
                         <td>@item.Data.ToString()</td>
                         <td>@item.Tipo.ToString().Replace("R", "Receita").Replace("D", "Despesas")</td>
                         <td>@item.Valor</td>

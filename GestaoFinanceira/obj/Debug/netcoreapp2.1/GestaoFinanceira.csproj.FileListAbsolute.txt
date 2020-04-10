@@ -90,3 +90,4 @@ G:\Programação_Udemy\C#\GestaoFinanceira\GestaoFinanceira\obj\Debug\netcoreapp
 G:\Programação_Udemy\C#\GestaoFinanceira\GestaoFinanceira\obj\Debug\netcoreapp2.1\GestaoFinanceira.csproj.CopyComplete
 G:\Programação_Udemy\C#\GestaoFinanceira\GestaoFinanceira\obj\Debug\netcoreapp2.1\Razor\Views\PlanoConta\EditarPlanoConta.g.cshtml.cs
 G:\Programação_Udemy\C#\GestaoFinanceira\GestaoFinanceira\obj\Debug\netcoreapp2.1\Razor\Views\Transacao\CriarTransacao.g.cshtml.cs
+G:\Programação_Udemy\C#\GestaoFinanceira\GestaoFinanceira\obj\Debug\netcoreapp2.1\Razor\Views\Transacao\EditarTransacao.g.cshtml.cs
