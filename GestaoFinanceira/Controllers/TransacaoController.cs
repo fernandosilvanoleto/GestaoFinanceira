@@ -38,7 +38,7 @@ namespace GestaoFinanceira.Controllers
             if (ModelState.IsValid)
             {
                 formulario.httpContextAccessorModel = httpContextAccessorController;
-                //formulario.Inserir();
+                formulario.Inserir();
                 return RedirectToAction(nameof(Index));
             }
             return View();

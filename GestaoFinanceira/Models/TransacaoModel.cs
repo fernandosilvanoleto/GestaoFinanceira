@@ -78,5 +78,14 @@ namespace GestaoFinanceira.Models
             }
             return lista;
         }
+
+        public void Inserir()
+        {
+            string id_usuario_logado = httpContextAccessorModel.HttpContext.Session.GetString("IdUsuarioLogado");
+            string sql = $"INSERT INTO TRANSACAO (DATA, TIPO, VALOR, DESCRICAO, CONTA_ID, PLANO_CONTAS_ID, USUARIO_ID) VALUES ('{DateTime.Parse(Data).ToString("yyyy/MM/dd")}', '{Tipo}', '{Valor}', '{Descricao}', '{Conta_Id}', '{PlanoConta_Id}', '{id_usuario_logado}')";
+            DAL objDAL = new DAL();
+            objDAL.ExecutarComandoSQL(sql);
+        }
+
     }
 }

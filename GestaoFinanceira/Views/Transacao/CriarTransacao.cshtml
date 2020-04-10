@@ -39,7 +39,7 @@
 
     <div class="form-group">
         <label>Conta:</label>
-        <select asp-for="Conta_Id">
+        <select asp-for="Conta_Id" class="form-control">
             @{ 
                 foreach (var item in (List<ContaModel>)ViewBag.ListaContas)
                 {
@@ -51,7 +51,7 @@
 
     <div class="form-group">
         <label>Plano de Contas:</label>
-        <select asp-for="PlanoConta_Id">
+        <select asp-for="PlanoConta_Id" class="form-control">
             @{
                 foreach (var item in (List<PlanoContaModel>)ViewBag.ListaPlanoContas)
                 {
