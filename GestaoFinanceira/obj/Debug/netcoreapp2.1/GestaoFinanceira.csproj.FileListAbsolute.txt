@@ -50,7 +50,6 @@ G:\Programação_Udemy\C#\GestaoFinanceira\GestaoFinanceira\bin\Debug\netcoreapp
 G:\Programação_Udemy\C#\GestaoFinanceira\GestaoFinanceira\bin\Debug\netcoreapp2.1\GestaoFinanceira.pdb
 G:\Programação_Udemy\C#\GestaoFinanceira\GestaoFinanceira\bin\Debug\netcoreapp2.1\GestaoFinanceira.Views.dll
 G:\Programação_Udemy\C#\GestaoFinanceira\GestaoFinanceira\bin\Debug\netcoreapp2.1\GestaoFinanceira.Views.pdb
-G:\Programação_Udemy\C#\GestaoFinanceira\GestaoFinanceira\obj\Debug\netcoreapp2.1\GestaoFinanceira.csprojAssemblyReference.cache
 G:\Programação_Udemy\C#\GestaoFinanceira\GestaoFinanceira\obj\Debug\netcoreapp2.1\GestaoFinanceira.csproj.CoreCompileInputs.cache
 G:\Programação_Udemy\C#\GestaoFinanceira\GestaoFinanceira\obj\Debug\netcoreapp2.1\GestaoFinanceira.RazorAssemblyInfo.cache
 G:\Programação_Udemy\C#\GestaoFinanceira\GestaoFinanceira\obj\Debug\netcoreapp2.1\GestaoFinanceira.RazorAssemblyInfo.cs
@@ -91,3 +90,5 @@ G:\Programação_Udemy\C#\GestaoFinanceira\GestaoFinanceira\obj\Debug\netcoreapp
 G:\Programação_Udemy\C#\GestaoFinanceira\GestaoFinanceira\obj\Debug\netcoreapp2.1\Razor\Views\PlanoConta\EditarPlanoConta.g.cshtml.cs
 G:\Programação_Udemy\C#\GestaoFinanceira\GestaoFinanceira\obj\Debug\netcoreapp2.1\Razor\Views\Transacao\CriarTransacao.g.cshtml.cs
 G:\Programação_Udemy\C#\GestaoFinanceira\GestaoFinanceira\obj\Debug\netcoreapp2.1\Razor\Views\Transacao\EditarTransacao.g.cshtml.cs
+G:\Programação_Udemy\C#\GestaoFinanceira\GestaoFinanceira\obj\Debug\netcoreapp2.1\Razor\Views\Transacao\ExcluirTransacao.g.cshtml.cs
+G:\Programação_Udemy\C#\GestaoFinanceira\GestaoFinanceira\obj\Debug\netcoreapp2.1\GestaoFinanceira.csprojAssemblyReference.cache

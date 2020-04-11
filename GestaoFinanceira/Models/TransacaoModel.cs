@@ -117,5 +117,18 @@ namespace GestaoFinanceira.Models
             objDAL.ExecutarComandoSQL(sql);
         }
 
+        public void Update(TransacaoModel formulario)
+        {
+            string id_usuario_logado = httpContextAccessorModel.HttpContext.Session.GetString("IdUsuarioLogado");
+            string sql = $"UPDATE TRANSACAO SET DATA = '{DateTime.Parse(formulario.Data).ToString("yyyy/MM/dd")}', TIPO = '{formulario.Tipo}', VALOR = '{formulario.Valor}', DESCRICAO = '{formulario.Descricao}', CONTA_ID = '{formulario.Conta_Id}', TIPO = '{formulario.Tipo}', PLANO_CONTAS_ID = '{formulario.PlanoConta_Id}' WHERE ID = '{formulario.Id}' AND USUARIO_ID = '{id_usuario_logado}'";
+            DAL objDAL = new DAL();
+            objDAL.ExecutarComandoSQL(sql);
+        }
+
+        public void Excluir(int id)
+        {
+            new DAL().ExecutarComandoSQL("DELETE FROM TRANSACAO WHERE ID = " + id);
+        }
+
     }
 }

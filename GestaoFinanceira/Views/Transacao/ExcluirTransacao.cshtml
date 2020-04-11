@@ -1,0 +1,27 @@
+﻿@model TransacaoModel
+
+@{
+    ViewData["Title"] = "Olá, " + @ViewBag.Registro.NomeUsuario.ToString() + "! Deseja excluir sua transação seguinte?";
+}
+
+
+<h2>@ViewData["Title"]</h2>
+<p>Identificação: <strong>@ViewBag.Registro.Id.ToString()</strong></p>
+<p>Data: <strong>@ViewBag.Registro.Data.ToString()</strong></p>
+<p>Descrição: <strong>@ViewBag.Registro.Descricao.ToString()</strong></p>
+<p>Conta: <strong>@ViewBag.Registro.NomeConta.ToString()</strong></p>
+<p>Plano Conta: <strong>@ViewBag.Registro.PlanoConta.ToString()</strong></p>
+
+<button type="button" onclick="Excluir(@ViewBag.Registro.Id)" class="btn btn-block btn-danger">Excluir</button>
+<button type="button" onclick="Cancelar()" class="btn btn-block btn-default">Cancelar</button>
+
+<script>
+    function Excluir(id) {
+        window.location.href = "../../Transacao/Excluir/" + id;
+    }
+
+    function Cancelar() {
+        window.location.href = "../../Transacao/Index";
+    }
+
+</script>

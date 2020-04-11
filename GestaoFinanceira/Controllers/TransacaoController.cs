@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using GestaoFinanceira.Models;
+using GestaoFinanceira.Util;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -56,6 +57,35 @@ namespace GestaoFinanceira.Controllers
                 return View();
             }
             return View(nameof(Index));
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult EditarTransacao(TransacaoModel transacao)
+        {
+            if (ModelState.IsValid)
+            {
+                transacao.httpContextAccessorModel = httpContextAccessorController;
+                transacao.Update(transacao);
+            }
+            return RedirectToAction(nameof(Index));
+        }
+
+        [HttpGet]
+        public IActionResult ExcluirTransacao(int id)
+        {
+            TransacaoModel obj = new TransacaoModel(httpContextAccessorController);
+            ViewBag.Registro = obj.ListaTransacaoEspecificaModel(id);
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult Excluir(int id)
+        {
+
+            TransacaoModel obj = new TransacaoModel(httpContextAccessorController);
+            obj.Excluir(id);
+            return RedirectToAction(nameof(Index));
         }
 
         public IActionResult Extrato()
