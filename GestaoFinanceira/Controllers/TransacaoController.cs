@@ -88,8 +88,13 @@ namespace GestaoFinanceira.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        public IActionResult Extrato()
+        [HttpGet]
+        [HttpPost]
+        public IActionResult Extrato(TransacaoModel formulario)
         {
+            formulario.httpContextAccessorModel = httpContextAccessorController;
+            ViewBag.ListaTransacao = formulario.ListaTransacaoModel();
+            ViewBag.ListaConta = new ContaModel(httpContextAccessorController).ListaContaModel();
             return View();
         }
 

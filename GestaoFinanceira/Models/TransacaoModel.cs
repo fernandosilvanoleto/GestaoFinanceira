@@ -16,6 +16,8 @@ namespace GestaoFinanceira.Models
         [Required(ErrorMessage = "Informe a Data!")]
         public string Data { get; set; }
 
+        public string DataFinal { get; set; } //utilizando para filtro
+
         [Required(ErrorMessage = "Informe o Tipo!")]
         public string Tipo { get; set; }
         public double Valor { get; set; }
