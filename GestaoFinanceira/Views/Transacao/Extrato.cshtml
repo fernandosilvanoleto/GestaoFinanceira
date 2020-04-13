@@ -36,4 +36,44 @@
         <button type="submit" class="btn btn-block btn-success">Pesquisar</button>
     </form>
 </div>
+<br />
+<br />
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Data</th>
+            <th>Tipo</th>
+            <th>Valor</th>
+            <th>Histórico</th>
+            <th>Nome Conta</th>
+            <th>Plano Conta</th>
+            <th>Usuario</th>
+        </tr>
+    </thead>
+    @{
+        foreach (var item in (List<TransacaoModel>)ViewBag.ListaTransacao)
+        {
+            <tbody>
+                <tr>
+                    <td><button type="button" class="btn btn-primary" onclick="Editar(@item.Id.ToString())">Editar</button></td>
+                    <td>@item.Data.ToString()</td>
+                    <td>@item.Tipo.ToString().Replace("R", "Receita").Replace("D", "Despesas")</td>
+                    <td>@item.Valor</td>
+                    <td>@item.Descricao.ToString()</td>
+                    <td>@item.NomeConta.ToString()</td>
+                    <td>@item.PlanoConta.ToString()</td>
+                    <td>@item.NomeUsuario.ToString()</td>
+                </tr>
+            </tbody>
+        }
+    }
+</table>
 
+<h3><strong>Saldo: </strong>R% 0.00</h3>
+
+<script>
+    function Editar(id) {
+        window.location.href = "../Transacao/EditarTransacao/" + id;
+    }
+</script>

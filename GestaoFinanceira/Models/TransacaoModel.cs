@@ -50,6 +50,21 @@ namespace GestaoFinanceira.Models
             List<TransacaoModel> lista = new List<TransacaoModel>();
             TransacaoModel item;
 
+            //utilizado pelo view Extrato
+            string filtro = "";
+            if (Data != null && DataFinal != null)
+            {
+                filtro = $" and t.DATA >= '{DateTime.Parse(Data).ToString("yyyy/MM/dd")}' and t.DATA <= '{DateTime.Parse(DataFinal).ToString("yyyy/MM/dd")}'";
+            }
+
+            if (Tipo != null)
+            {
+                if (Tipo != "A")
+                {
+                    filtro += " and t.TIPO = '{Tipo}'";
+                }
+            }
+
             string id_usuario_logado = httpContextAccessorModel.HttpContext.Session.GetString("IdUsuarioLogado");
             string sql = "SELECT t.ID, t.DATA, t.TIPO, t.VALOR, t.DESCRICAO AS Historico, t.CONTA_ID, c.Nome, "+
                             " t.PLANO_CONTAS_ID, plano.Descricao AS PlanoConta, t.USUARIO_ID, usuario.Nome as NomeUsuario" +
@@ -57,7 +72,7 @@ namespace GestaoFinanceira.Models
                             " inner join conta as c on t.CONTA_ID = c.id" +
                             " inner join plano_contas as plano on t.PLANO_CONTAS_ID = plano.Id" +
                             " inner join usuario as usuario on t.USUARIO_ID = usuario.Id" +
-                            $" WHERE t.USUARIO_ID = { id_usuario_logado }  ORDER BY t.DATA;";
+                            $" WHERE t.USUARIO_ID = { id_usuario_logado } {filtro} ORDER BY t.DATA;";
             DAL objDAL = new DAL();
             DataTable dt = objDAL.RetDataTable(sql);
 
