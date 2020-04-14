@@ -54,15 +54,21 @@ namespace GestaoFinanceira.Models
             string filtro = "";
             if (Data != null && DataFinal != null)
             {
-                filtro = $" and t.DATA >= '{DateTime.Parse(Data).ToString("yyyy/MM/dd")}' and t.DATA <= '{DateTime.Parse(DataFinal).ToString("yyyy/MM/dd")}'";
+                filtro += $" and t.DATA >= '{DateTime.Parse(Data).ToString("yyyy/MM/dd")}' and t.DATA <= '{DateTime.Parse(DataFinal).ToString("yyyy/MM/dd")}'";
             }
 
             if (Tipo != null)
             {
                 if (Tipo != "A")
                 {
-                    filtro += " and t.TIPO = '{Tipo}'";
+                    filtro += $" and t.TIPO = '{Tipo}'";
                 }
+            }
+
+            if (Conta_Id != 0)
+            {
+                filtro += $" and t.Conta_Id = '{Conta_Id}'";
+                
             }
 
             string id_usuario_logado = httpContextAccessorModel.HttpContext.Session.GetString("IdUsuarioLogado");

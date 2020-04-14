@@ -52,8 +52,11 @@
         </tr>
     </thead>
     @{
-        foreach (var item in (List<TransacaoModel>)ViewBag.ListaTransacao)
-        {
+                    var TotalReceita = 0.0;
+                    var TotalDespesas = 0.0;
+                    var Saldo = 0.0;
+                    foreach (var item in (List<TransacaoModel>)ViewBag.ListaTransacao)
+                    {
             <tbody>
                 <tr>
                     <td><button type="button" class="btn btn-primary" onclick="Editar(@item.Id.ToString())">Editar</button></td>
@@ -65,12 +68,23 @@
                     <td>@item.PlanoConta.ToString()</td>
                     <td>@item.NomeUsuario.ToString()</td>
                 </tr>
+                @{ 
+                    if (item.Tipo == "D")
+                    {
+                        TotalDespesas += double.Parse(item.Valor.ToString());
+            }
+                    else
+                    {
+                        TotalReceita += double.Parse(item.Valor.ToString());
+        }
+                }
             </tbody>
         }
+                    Saldo = TotalReceita - TotalDespesas;
     }
 </table>
 
-<h3><strong>Saldo: </strong>R% 0.00</h3>
+<h3><strong>Saldo: </strong>R$ @Saldo</h3>
 
 <script>
     function Editar(id) {
