@@ -151,7 +151,38 @@ namespace GestaoFinanceira.Models
         public void Excluir(int id)
         {
             new DAL().ExecutarComandoSQL("DELETE FROM TRANSACAO WHERE ID = " + id);
-        }
+        }         
 
+    }
+
+    public class Dashboard
+    {
+        public double Total { get; set; }
+        public string PlanoConta { get; set; }
+
+        public List<Dashboard> RetornarDadosGeral()
+        {
+            List<Dashboard> lista = new List<Dashboard>();
+            Dashboard item;
+
+            string sql = "SELECT pc.Descricao, SUM(t.valor) as Total FROM financeiro.transacao t " +
+                         "inner join financeiro.plano_contas pc on t.Plano_Contas_Id = pc.Id " +
+                         "where t.Tipo = 'D' " +
+                         "group by pc.Descricao";
+
+            DAL objDAL = new DAL();
+            DataTable dt = new DataTable();
+
+            dt = objDAL.RetDataTable(sql);
+
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                item = new Dashboard();
+                item.Total = double.Parse(dt.Rows[i]["Total"].ToString());
+                item.PlanoConta = dt.Rows[i]["Descricao"].ToString();
+                lista.Add(item);
+            }
+            return lista;
+        }
     }
 }

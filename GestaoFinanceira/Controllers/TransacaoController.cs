@@ -100,6 +100,22 @@ namespace GestaoFinanceira.Controllers
 
         public IActionResult Dashboard()
         {
+            string valores = "";
+            string labels = "";
+
+            var random = new Random();
+
+            string cores = "";
+            List<Dashboard> listaDashboards = new Dashboard().RetornarDadosGeral();
+            for (int i = 0; i < listaDashboards.Count; i++)
+            {
+                valores += "'" + listaDashboards[i].Total.ToString() + "', ";
+                labels += "'" + listaDashboards[i].PlanoConta.ToString() + "', ";
+                cores += "'" + String.Format("#{0:X6}", random.Next(0x1000000)) + "' ,";
+            }
+            ViewBag.ValoresCores = cores;
+            ViewBag.ValoresLabels = labels;
+            ViewBag.ValoresData = valores;
             return View();
         }
     }

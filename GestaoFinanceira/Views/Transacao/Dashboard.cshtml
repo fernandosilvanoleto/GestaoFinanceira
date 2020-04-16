@@ -23,28 +23,12 @@
         data: {
             datasets: [{
                 data: [
-                    randomScalingFactor(),
-                    randomScalingFactor(),
-                    randomScalingFactor(),
-                    randomScalingFactor(),
-                    randomScalingFactor(),
+                    @Html.Raw(@ViewBag.ValoresData)
                 ],
-                backgroundColor: [
-                    "#436723",
-                    "#436723",
-                    "#436723",
-                    "#436723",
-                    "#436723",
-                ],
+                backgroundColor: [@Html.Raw(ViewBag.ValoresCores)],
                 label: 'Dataset 1'
             }],
-            labels: [
-                'Red',
-                'Orange',
-                'Yellow',
-                'Green',
-                'Blue'
-            ]
+            labels: [@Html.Raw(ViewBag.ValoresLabels)]
         },
         options: {
             responsive: true
