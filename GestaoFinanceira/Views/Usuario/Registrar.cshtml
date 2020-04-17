@@ -1,28 +1,37 @@
 ﻿@model UsuarioModel
 
-<h1>Registrar Usuário</h1>
-<br />
+@{
+    Layout = "../Shared/_LayoutLogin.cshtml";
+}
 
-<form asp-controller="Usuario" asp-action="Registrar">
-    <div class="form-group">
-        <label for="email">Nome Completo</label>
-        <input type="text" class="form-control" placeholder="Enter Name" asp-for="Nome">
-        <span asp-validation-for="Nome" class="text-danger"></span>
+    <div class="container" style="background-color: rgba(239, 239, 239, 0.95); border-radius: 10px; padding: 20px; width: 500px; ">
+
+        <h1>Registrar Usuário</h1>
+        <br />
+        <form asp-controller="Usuario" asp-action="Registrar">
+            <div class="form-group">
+                <label for="email">Nome Completo</label>
+                <input type="text" class="form-control" placeholder="Enter Name" asp-for="Nome">
+                <span asp-validation-for="Nome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" placeholder="Enter email" asp-for="Email">
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="pwd">Senha</label>
+                <input type="password" class="form-control" placeholder="Enter password" asp-for="Senha">
+                <span asp-validation-for="Senha" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="pwd">Data de Nascimento</label>
+                <input type="date" class="form-control" placeholder="Enter Date Bird" asp-for="DataNascimento">
+                <span asp-validation-for="DataNascimento" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-block btn-success">Registrar</button>
+            <button type="button" class="btn btn-block btn-primary">
+                <a href="../Usuario/Login" style="color:aliceblue;">Login</a>
+            </button>
+        </form>
     </div>
-    <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" class="form-control" placeholder="Enter email" asp-for="Email">
-        <span asp-validation-for="Email" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label for="pwd">Senha</label>
-        <input type="password" class="form-control" placeholder="Enter password" asp-for="Senha">
-        <span asp-validation-for="Senha" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label for="pwd">Data de Nascimento</label>
-        <input type="date" class="form-control" placeholder="Enter Date Bird" asp-for="DataNascimento">
-        <span asp-validation-for="DataNascimento" class="text-danger"></span>
-    </div>
-    <button type="submit" class="btn btn-block btn-success">Registrar</button>
-</form>

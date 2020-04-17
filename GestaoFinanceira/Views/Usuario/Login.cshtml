@@ -1,36 +1,44 @@
 ﻿@model UsuarioModel
 
 @{
-    try
-    {
-        if (TempData["MensagemLoginInvalidoController"].ToString() != null)
-        {
-            <div class="alert alert-danger">
-                <strong>Atenção! </strong>@TempData["MensagemLoginInvalidoController"]
-            </div>
-        }
-    }
-    catch (Exception)
-    {       
-    }
+    Layout = "../Shared/_LayoutLogin.cshtml";
+   
 }
 
-<h2>Login</h2>
-
-<form asp-controller="Usuario" asp-action="ValidarLogin">
-    <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" class="form-control" placeholder="Enter email" asp-for="Email">
+    <div class="container" style="background-color: rgba(239, 239, 239, 0.95); border-radius: 10px; padding: 20px; width: 300px; ">
+        @{
+            try
+            {
+                if (TempData["MensagemLoginInvalidoController"].ToString() != null)
+                {
+                    <div class="alert alert-danger">
+                        <strong>Atenção! </strong>@TempData["MensagemLoginInvalidoController"]
+                    </div>
+                }
+            }
+            catch (Exception)
+            {
+            }
+        }
+        <h2>Login</h2>
+        <form asp-controller="Usuario" asp-action="ValidarLogin">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" placeholder="Enter email" asp-for="Email">
+            </div>
+            <div class="form-group">
+                <label for="pwd">Senha</label>
+                <input type="password" class="form-control" placeholder="Enter password" asp-for="Senha">
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox"> Lembrar Meu Acesso
+                </label>
+            </div>
+            <button type="submit" class="btn btn-block btn-primary">Entrar</button>
+            <button type="button" class="btn btn-block btn-success">
+                <a href="../Usuario/Registrar" style="color:aliceblue;">Criar Conta</a>
+            </button>
+        </form>
     </div>
-    <div class="form-group">
-        <label for="pwd">Senha</label>
-        <input type="password" class="form-control" placeholder="Enter password" asp-for="Senha">
-    </div>
-    <div class="form-group form-check">
-        <label class="form-check-label">
-            <input class="form-check-input" type="checkbox"> Lembrar Meu Acesso
-        </label>
-    </div>
-    <button type="submit" class="btn btn-primary">Entrar</button>
-</form>
 

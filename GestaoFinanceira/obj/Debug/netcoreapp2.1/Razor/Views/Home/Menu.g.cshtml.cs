@@ -69,7 +69,7 @@ using GestaoFinanceira.Models;
             WriteLiteral("\r\n<div class=\"row\">\r\n    <a href=\"../Conta/Index\">\r\n        <div class=\"col-lg-4 text-center\">\r\n            ");
             EndContext();
             BeginContext(153, 44, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "0f89d7860e464d9589588dcb1ad0f0ef", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "883789bab3d14c458322894004bb4587", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -88,7 +88,7 @@ using GestaoFinanceira.Models;
             WriteLiteral("\r\n            <h3>Criar Conta</h3>\r\n        </div>\r\n    </a>\r\n    <a href=\"../PlanoConta/Index\">\r\n        <div class=\"col-lg-4 text-center\">\r\n            ");
             EndContext();
             BeginContext(351, 50, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "06539df687ec4afabf89d083de0a43e9", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "54c333614a2b4df8aedf61b33469436a", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -107,7 +107,7 @@ using GestaoFinanceira.Models;
             WriteLiteral("\r\n            <h3>Plano de Contas</h3>\r\n        </div>\r\n    </a>\r\n    <a href=\"../Transacao/Index\">\r\n        <div class=\"col-lg-4 text-center\">\r\n            ");
             EndContext();
             BeginContext(558, 58, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "f5d77f2af88445c9b46e30d937384e89", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "33ea25bf5b504b9baf4ff67aa0b0b925", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -126,7 +126,7 @@ using GestaoFinanceira.Models;
             WriteLiteral("\r\n            <h3>Registrar Transação</h3>\r\n        </div>\r\n    </a>\r\n</div>\r\n<br /> <br /> <br />\r\n<div class=\"row\">\r\n    <a href=\"../Transacao/Extrato\">\r\n        <div class=\"col-lg-4 text-center\">\r\n            ");
             EndContext();
             BeginContext(828, 46, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "2a735089f0544077a05c78c31a8234e9", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "44549677a90d4c709dc9541bfdbe3c94", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -145,7 +145,7 @@ using GestaoFinanceira.Models;
             WriteLiteral("\r\n            <h3>Extrato</h3>\r\n        </div>\r\n    </a>\r\n    <a href=\"../Transacao/Dashboard\">\r\n        <div class=\"col-lg-4 text-center\">\r\n            ");
             EndContext();
             BeginContext(1027, 48, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "23291f5c73cb49fda4db487bbede2f70", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "360f5b35b79644bdbeabc3ed9a25874d", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -164,7 +164,7 @@ using GestaoFinanceira.Models;
             WriteLiteral("\r\n            <h3>Dashboard</h3>\r\n        </div>\r\n    </a>\r\n    <a href=\"../Home/Ajuda\">\r\n        <div class=\"col-lg-4 text-center\">\r\n            ");
             EndContext();
             BeginContext(1221, 44, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "037b8902a8e742a3a1a20589015f953f", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "faeb29688fe74a4ab60dadefc1541583", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();

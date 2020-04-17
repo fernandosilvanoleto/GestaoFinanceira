@@ -92,3 +92,4 @@ G:\Programação_Udemy\C#\GestaoFinanceira\GestaoFinanceira\obj\Debug\netcoreapp
 G:\Programação_Udemy\C#\GestaoFinanceira\GestaoFinanceira\obj\Debug\netcoreapp2.1\Razor\Views\Transacao\EditarTransacao.g.cshtml.cs
 G:\Programação_Udemy\C#\GestaoFinanceira\GestaoFinanceira\obj\Debug\netcoreapp2.1\Razor\Views\Transacao\ExcluirTransacao.g.cshtml.cs
 G:\Programação_Udemy\C#\GestaoFinanceira\GestaoFinanceira\obj\Debug\netcoreapp2.1\GestaoFinanceira.csprojAssemblyReference.cache
+G:\Programação_Udemy\C#\GestaoFinanceira\GestaoFinanceira\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_LayoutLogin.g.cshtml.cs

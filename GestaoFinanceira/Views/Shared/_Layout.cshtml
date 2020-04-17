@@ -82,7 +82,9 @@
             var divNome = document.getElementById("NomeUsuarioLogadoView");
             divNome.innerHTML = "Olá, " + nome + "<a href='../Usuario/Login/0'>(Sair)</a>";
             divNome.style = "color:#ffffff; text-align: right; heignt: 50 px; padding-top: 13px;"
-        }        
+        } else {
+            window.location.href = "../Usuario/Login";
+        }   
     }
 </script>
 </body>
