@@ -16,6 +16,8 @@ namespace GestaoFinanceira.Models
         public string Nome { get; set; }
 
         [Required(ErrorMessage = "Preencha o Email!")]
+        [DataType(DataType.EmailAddress)]
+        [EmailAddress(ErrorMessage = "O e-email informado é errado!")]
         public string Email { get; set; }
 
         [Required(ErrorMessage = "Preencha a Senha!")]

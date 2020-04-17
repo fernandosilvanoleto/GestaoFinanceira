@@ -39,6 +39,11 @@ namespace GestaoFinanceira.Models
 
         }
 
+        private string IdUsuarioLogado()
+        {
+            return httpContextAccessorModel.HttpContext.Session.GetString("IdUsuarioLogado");
+        }
+
         //Recebe o contexto para acesso às variáveis de sessão
         public TransacaoModel(IHttpContextAccessor httpContextAccessor)
         {
@@ -71,14 +76,14 @@ namespace GestaoFinanceira.Models
                 
             }
 
-            string id_usuario_logado = httpContextAccessorModel.HttpContext.Session.GetString("IdUsuarioLogado");
+            //string id_usuario_logado = httpContextAccessorModel.HttpContext.Session.GetString("IdUsuarioLogado");
             string sql = "SELECT t.ID, t.DATA, t.TIPO, t.VALOR, t.DESCRICAO AS Historico, t.CONTA_ID, c.Nome, "+
                             " t.PLANO_CONTAS_ID, plano.Descricao AS PlanoConta, t.USUARIO_ID, usuario.Nome as NomeUsuario" +
                             " FROM TRANSACAO as t" +
                             " inner join conta as c on t.CONTA_ID = c.id" +
                             " inner join plano_contas as plano on t.PLANO_CONTAS_ID = plano.Id" +
                             " inner join usuario as usuario on t.USUARIO_ID = usuario.Id" +
-                            $" WHERE t.USUARIO_ID = { id_usuario_logado } {filtro} ORDER BY t.DATA;";
+                            $" WHERE t.USUARIO_ID = { IdUsuarioLogado() } {filtro} ORDER BY t.DATA;";
             DAL objDAL = new DAL();
             DataTable dt = objDAL.RetDataTable(sql);
 
@@ -106,14 +111,14 @@ namespace GestaoFinanceira.Models
         {
             TransacaoModel transacao = new TransacaoModel();
 
-            string id_usuario_logado = httpContextAccessorModel.HttpContext.Session.GetString("IdUsuarioLogado");
+            //string id_usuario_logado = httpContextAccessorModel.HttpContext.Session.GetString("IdUsuarioLogado");
             string sql = "SELECT t.ID, t.DATA, t.TIPO, t.VALOR, t.DESCRICAO AS Historico, t.CONTA_ID, c.Nome, " +
                             " t.PLANO_CONTAS_ID, plano.Descricao AS PlanoConta, t.USUARIO_ID, usuario.Nome as NomeUsuario" +
                             " FROM TRANSACAO as t" +
                             " inner join conta as c on t.CONTA_ID = c.id" +
                             " inner join plano_contas as plano on t.PLANO_CONTAS_ID = plano.Id" +
                             " inner join usuario as usuario on t.USUARIO_ID = usuario.Id" +
-                            $" WHERE t.USUARIO_ID = { id_usuario_logado } AND t.ID = {id};";
+                            $" WHERE t.USUARIO_ID = { IdUsuarioLogado() } AND t.ID = {id};";
             DAL objDAL = new DAL();
             DataTable dt = objDAL.RetDataTable(sql);
 
@@ -134,16 +139,16 @@ namespace GestaoFinanceira.Models
 
         public void Inserir()
         {
-            string id_usuario_logado = httpContextAccessorModel.HttpContext.Session.GetString("IdUsuarioLogado");
-            string sql = $"INSERT INTO TRANSACAO (DATA, TIPO, VALOR, DESCRICAO, CONTA_ID, PLANO_CONTAS_ID, USUARIO_ID) VALUES ('{DateTime.Parse(Data).ToString("yyyy/MM/dd")}', '{Tipo}', '{Valor}', '{Descricao}', '{Conta_Id}', '{PlanoConta_Id}', '{id_usuario_logado}')";
+            //string id_usuario_logado = httpContextAccessorModel.HttpContext.Session.GetString("IdUsuarioLogado");
+            string sql = $"INSERT INTO TRANSACAO (DATA, TIPO, VALOR, DESCRICAO, CONTA_ID, PLANO_CONTAS_ID, USUARIO_ID) VALUES ('{DateTime.Parse(Data).ToString("yyyy/MM/dd")}', '{Tipo}', '{Valor}', '{Descricao}', '{Conta_Id}', '{PlanoConta_Id}', '{IdUsuarioLogado()}')";
             DAL objDAL = new DAL();
             objDAL.ExecutarComandoSQL(sql);
         }
 
         public void Update(TransacaoModel formulario)
         {
-            string id_usuario_logado = httpContextAccessorModel.HttpContext.Session.GetString("IdUsuarioLogado");
-            string sql = $"UPDATE TRANSACAO SET DATA = '{DateTime.Parse(formulario.Data).ToString("yyyy/MM/dd")}', TIPO = '{formulario.Tipo}', VALOR = '{formulario.Valor}', DESCRICAO = '{formulario.Descricao}', CONTA_ID = '{formulario.Conta_Id}', TIPO = '{formulario.Tipo}', PLANO_CONTAS_ID = '{formulario.PlanoConta_Id}' WHERE ID = '{formulario.Id}' AND USUARIO_ID = '{id_usuario_logado}'";
+            //string id_usuario_logado = httpContextAccessorModel.HttpContext.Session.GetString("IdUsuarioLogado");
+            string sql = $"UPDATE TRANSACAO SET DATA = '{DateTime.Parse(formulario.Data).ToString("yyyy/MM/dd")}', TIPO = '{formulario.Tipo}', VALOR = '{formulario.Valor}', DESCRICAO = '{formulario.Descricao}', CONTA_ID = '{formulario.Conta_Id}', TIPO = '{formulario.Tipo}', PLANO_CONTAS_ID = '{formulario.PlanoConta_Id}' WHERE ID = '{formulario.Id}' AND USUARIO_ID = '{IdUsuarioLogado()}'";
             DAL objDAL = new DAL();
             objDAL.ExecutarComandoSQL(sql);
         }

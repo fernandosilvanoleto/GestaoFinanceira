@@ -24,6 +24,11 @@ namespace GestaoFinanceira.Models
 
         }
 
+        private string IdUsuarioLogado()
+        {
+            return httpContextAccessorModel.HttpContext.Session.GetString("IdUsuarioLogado");
+        }
+
         //Recebe o contexto para acesso às variáveis de sessão
         public ContaModel(IHttpContextAccessor httpContextAccessor)
         {
@@ -35,8 +40,8 @@ namespace GestaoFinanceira.Models
             List<ContaModel> lista = new List<ContaModel>();
             ContaModel item;
 
-            string id_usuario_logado = httpContextAccessorModel.HttpContext.Session.GetString("IdUsuarioLogado");
-            string sql = $"SELECT ID, NOME, SALDO, USUARIO_ID FROM CONTA WHERE USUARIO_ID = {id_usuario_logado}";
+            //string id_usuario_logado = httpContextAccessorModel.HttpContext.Session.GetString("IdUsuarioLogado");
+            string sql = $"SELECT ID, NOME, SALDO, USUARIO_ID FROM CONTA WHERE USUARIO_ID = {IdUsuarioLogado()}";
             DAL objDAL = new DAL();
             DataTable dt = objDAL.RetDataTable(sql);
 
@@ -56,8 +61,8 @@ namespace GestaoFinanceira.Models
         {
             ContaModel lista = new ContaModel();
 
-            string id_usuario_logado = httpContextAccessorModel.HttpContext.Session.GetString("IdUsuarioLogado");
-            string sql = $"SELECT ID, NOME, SALDO, USUARIO_ID FROM CONTA WHERE USUARIO_ID = {id_usuario_logado} AND ID = {idConta}";
+            //string id_usuario_logado = httpContextAccessorModel.HttpContext.Session.GetString("IdUsuarioLogado");
+            string sql = $"SELECT ID, NOME, SALDO, USUARIO_ID FROM CONTA WHERE USUARIO_ID = {IdUsuarioLogado()} AND ID = {idConta}";
             DAL objDAL = new DAL();
             DataTable dt = objDAL.RetDataTable(sql);
 
@@ -72,16 +77,16 @@ namespace GestaoFinanceira.Models
 
             public void Insert()
         {
-            string id_usuario_logado = httpContextAccessorModel.HttpContext.Session.GetString("IdUsuarioLogado");
-            string sql = $"INSERT INTO CONTA(NOME, SALDO, USUARIO_ID) VALUES ('{Nome}', '{Saldo}', '{id_usuario_logado}')";
+            //string id_usuario_logado = httpContextAccessorModel.HttpContext.Session.GetString("IdUsuarioLogado");
+            string sql = $"INSERT INTO CONTA(NOME, SALDO, USUARIO_ID) VALUES ('{Nome}', '{Saldo}', '{IdUsuarioLogado()}')";
             DAL objDAL = new DAL();
             objDAL.ExecutarComandoSQL(sql);
         }
 
         public void Update(ContaModel formulario)
         {
-            string id_usuario_logado = httpContextAccessorModel.HttpContext.Session.GetString("IdUsuarioLogado");
-            string sql = $"UPDATE CONTA SET NOME = '{formulario.Nome}', SALDO = '{formulario.Saldo}' WHERE ID = '{formulario.Id}' AND USUARIO_ID = '{IdUsuario}'";
+            //string id_usuario_logado = httpContextAccessorModel.HttpContext.Session.GetString("IdUsuarioLogado");
+            string sql = $"UPDATE CONTA SET NOME = '{formulario.Nome}', SALDO = '{formulario.Saldo}' WHERE ID = '{formulario.Id}' AND USUARIO_ID = '{IdUsuarioLogado()}'";
             DAL objDAL = new DAL();
             objDAL.ExecutarComandoSQL(sql);
         }

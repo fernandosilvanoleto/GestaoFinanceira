@@ -27,6 +27,11 @@ namespace GestaoFinanceira.Models
 
         }
 
+        private string IdUsuarioLogado()
+        {
+            return httpContextAccessorModel.HttpContext.Session.GetString("IdUsuarioLogado");
+        }
+
         //Recebe o contexto para acesso às variáveis de sessão
         public PlanoContaModel(IHttpContextAccessor httpContextAccessor)
         {
@@ -38,8 +43,8 @@ namespace GestaoFinanceira.Models
             List<PlanoContaModel> lista = new List<PlanoContaModel>();
             PlanoContaModel item;
 
-            string id_usuario_logado = httpContextAccessorModel.HttpContext.Session.GetString("IdUsuarioLogado");
-            string sql = $"SELECT ID, DESCRICAO, TIPO, USUARIO_ID FROM PLANO_CONTAS WHERE USUARIO_ID = {id_usuario_logado}";
+            //string id_usuario_logado = httpContextAccessorModel.HttpContext.Session.GetString("IdUsuarioLogado");
+            string sql = $"SELECT ID, DESCRICAO, TIPO, USUARIO_ID FROM PLANO_CONTAS WHERE USUARIO_ID = {IdUsuarioLogado()}";
             DAL objDAL = new DAL();
             DataTable dt = objDAL.RetDataTable(sql);
 
@@ -57,8 +62,8 @@ namespace GestaoFinanceira.Models
 
         public void Insert()
         {
-            string id_usuario_logado = httpContextAccessorModel.HttpContext.Session.GetString("IdUsuarioLogado");
-            string sql = $"INSERT INTO PLANO_CONTAS (DESCRICAO, TIPO, USUARIO_ID) VALUES ('{Descricao}', '{Tipo}', '{id_usuario_logado}')";
+            //string id_usuario_logado = httpContextAccessorModel.HttpContext.Session.GetString("IdUsuarioLogado");
+            string sql = $"INSERT INTO PLANO_CONTAS (DESCRICAO, TIPO, USUARIO_ID) VALUES ('{Descricao}', '{Tipo}', '{IdUsuarioLogado()}')";
             DAL objDAL = new DAL();
             objDAL.ExecutarComandoSQL(sql);
         }        
@@ -72,8 +77,8 @@ namespace GestaoFinanceira.Models
         {
             PlanoContaModel item = new PlanoContaModel();
 
-            string id_usuario_logado = httpContextAccessorModel.HttpContext.Session.GetString("IdUsuarioLogado");
-            string sql = $"SELECT ID, DESCRICAO, TIPO, USUARIO_ID FROM PLANO_CONTAS WHERE USUARIO_ID = {id_usuario_logado} AND Id = {id}";
+            //string id_usuario_logado = httpContextAccessorModel.HttpContext.Session.GetString("IdUsuarioLogado");
+            string sql = $"SELECT ID, DESCRICAO, TIPO, USUARIO_ID FROM PLANO_CONTAS WHERE USUARIO_ID = {IdUsuarioLogado()} AND Id = {id}";
             DAL objDAL = new DAL();
             DataTable dt = objDAL.RetDataTable(sql);
 
@@ -87,8 +92,8 @@ namespace GestaoFinanceira.Models
 
         public void Update(PlanoContaModel formulario)
         {
-            string id_usuario_logado = httpContextAccessorModel.HttpContext.Session.GetString("IdUsuarioLogado");
-            string sql = $"UPDATE PLANO_CONTAS SET DESCRICAO = '{formulario.Descricao}', TIPO = '{formulario.Tipo}' WHERE ID = '{formulario.Id}' AND USUARIO_ID = '{id_usuario_logado}'";
+            //string id_usuario_logado = httpContextAccessorModel.HttpContext.Session.GetString("IdUsuarioLogado");
+            string sql = $"UPDATE PLANO_CONTAS SET DESCRICAO = '{formulario.Descricao}', TIPO = '{formulario.Tipo}' WHERE ID = '{formulario.Id}' AND USUARIO_ID = '{IdUsuarioLogado()}'";
             DAL objDAL = new DAL();
             objDAL.ExecutarComandoSQL(sql);
         }
