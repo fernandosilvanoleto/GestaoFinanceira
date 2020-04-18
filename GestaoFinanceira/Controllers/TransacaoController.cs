@@ -106,7 +106,7 @@ namespace GestaoFinanceira.Controllers
             var random = new Random();
 
             string cores = "";
-            List<Dashboard> listaDashboards = new Dashboard().RetornarDadosGeral();
+            List<Dashboard> listaDashboards = new Dashboard(httpContextAccessorController).RetornarDadosGeral();
             for (int i = 0; i < listaDashboards.Count; i++)
             {
                 valores += "'" + listaDashboards[i].Total.ToString() + "', ";

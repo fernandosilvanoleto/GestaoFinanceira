@@ -165,6 +165,24 @@ namespace GestaoFinanceira.Models
         public double Total { get; set; }
         public string PlanoConta { get; set; }
 
+        public IHttpContextAccessor httpContextAccessorModel { get; set; }
+
+        public Dashboard()
+        {
+
+        }        
+
+        //Recebe o contexto para acesso às variáveis de sessão
+        public Dashboard(IHttpContextAccessor httpContextAccessor)
+        {
+            httpContextAccessorModel = httpContextAccessor;
+        }
+
+        private string IdUsuarioLogado()
+        {
+            return httpContextAccessorModel.HttpContext.Session.GetString("IdUsuarioLogado");
+        }
+
         public List<Dashboard> RetornarDadosGeral()
         {
             List<Dashboard> lista = new List<Dashboard>();
@@ -172,7 +190,7 @@ namespace GestaoFinanceira.Models
 
             string sql = "SELECT pc.Descricao, SUM(t.valor) as Total FROM financeiro.transacao t " +
                          "inner join financeiro.plano_contas pc on t.Plano_Contas_Id = pc.Id " +
-                         "where t.Tipo = 'D' " +
+                         $"where t.Tipo = 'D' and t.Usuario_Id = '{IdUsuarioLogado()}' " +
                          "group by pc.Descricao";
 
             DAL objDAL = new DAL();
